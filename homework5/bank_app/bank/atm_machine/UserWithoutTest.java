@@ -5,17 +5,17 @@ import homework5.bank_app.bank.repository.Database;
 
 import java.util.ArrayList;
 
-public class User {
+public class UserWithoutTest {
 
     private String name;
     private ArrayList<BankAccount> accounts;
 
-    public User(String name, ArrayList<BankAccount> accounts) {
+    public UserWithoutTest(String name, ArrayList<BankAccount> accounts) {
         this.name = name;
         this.accounts = accounts;
     }
 
-    public User(String name) {
+    public UserWithoutTest(String name) {
         this.name = name;
         this.accounts = new ArrayList<BankAccount>();
     }

@@ -1,32 +1,30 @@
 package homework5.strings;
 
-import lombok.AllArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-@AllArgsConstructor
-public class Strings {
+public class Strings_Manipulation {
 
     // Write a method to check if a string contains only digits.
-     boolean checkDigits(String s) {
+    public static void checkDigits(String s) {
         try {
             Integer.parseInt(s);
         } catch (NumberFormatException e) {
             System.out.println("The string is not made of digits");
-            return false;
+            return;
         }
         System.out.println("The string is made of digits");
-        return true;
+
     }
 
     // Write a method to remove a given character from String.
-    String removeChar(String s, char c) {
+    public static void removeChar(String s, char c) {
         String newString = s.replace(Character.toString(c), "");
         System.out.println("The new string is " + newString);
-        return newString;
+
+
     }
 
     // Write a method to count a number of vowels and consonants in a given string.
@@ -35,7 +33,7 @@ public class Strings {
         return (character == 'A' || character == 'E' || character == 'I' || character == 'O' || character == 'U');
     }
 
-     int countVowels(String strV) {
+    static int countVowels(String strV) {
         int count = 0;
         for (int i = 0; i < strV.length(); i++)
             if (isVowel(strV.charAt(i)))
@@ -43,14 +41,14 @@ public class Strings {
         return count;
     }
 
-     static boolean isConson(char character) {
+    static boolean isConson(char character) {
         character = Character.toUpperCase(character);
 
         return !(character == 'A' || character == 'E' || character == 'I' || character == 'O' || character == 'U') &&
                 character >= 65 && character <= 90;
     }
 
-     int countConson(String str) {
+    static int countConson(String str) {
         int count = 0;
         for (int i = 0; i < str.length(); i++)
 
@@ -60,9 +58,9 @@ public class Strings {
     }
 
     // Write a method to count the occurrence of a given character in a string
-     int count(String s, char c) {
+    public static int count(String s, char c) {
         int res = 0;
-        //String newStr=s.toLowerCase();
+
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == c) {
                 res++;
@@ -72,30 +70,21 @@ public class Strings {
     }
 
     //Write a method to check if a given string is a palindrome.
-    boolean checkPalindrome(String A) {
-         if(A=="")
-             return false;
-
-         String B="";
+    public static void checkPalindrome(String A, String B) {
         int length = A.length();
         for (int i = length - 1; i >= 0; i--)
             B = B + A.charAt(i);
 
         if (A.equals(B)) {
             System.out.println("The string is palindrome");
-            return true;
         } else {
-
             System.out.println("The string isn't palindrome");
-            return false;
         }
     }
 
 
     //Write a method to remove the duplicate character from String.
-     String removeDuplicates(String s) {
-        char []str=s.toCharArray();
-        int number=str.length;
+    public static String removeDuplicates(char str[], int number) {
         int index = 0;
         for (int i = 0; i < number; i++) {
             int j;
@@ -113,9 +102,8 @@ public class Strings {
     }
 
     // Write a method to find duplicate characters in a given string.
-    String duplicateString(String str) {
+    public static void duplicateString(String str) {
         int count = 0;
-        String returnString="";
         char[] inp = str.toCharArray();
         int[] checked = new int[inp.length];
         System.out.println("Duplicate Characters are:");
@@ -130,20 +118,19 @@ public class Strings {
                     }
                 }
                 if (count > 0)
-                    returnString=returnString+inp[i];
+                    System.out.println(inp[i]);
             }
         }
-        return returnString;
     }
 
     // Write a method to check if two strings are anagrams of each other.
-    boolean anagrams(String string1, String string2) {
+    public static void anagrams(String string1, String string2) {
         char[] s1 = string1.toCharArray();
         char[] s2 = string2.toCharArray();
 
         if(string1=="" || string2=="") {
             System.out.println("One or both strings are empty");
-            return false;
+            return;
         }
         class charFreq {
             public char c;
@@ -161,7 +148,7 @@ public class Strings {
         charFreq temp;int ok=0;
         for (char aux : s1) {
             ok=0;
-            if (list.isEmpty()) {
+            if (list.isEmpty() == true) {
                 list.add(new charFreq(aux));
                 ok=1;
             }else {
@@ -191,8 +178,9 @@ public class Strings {
 
                 }
             if (ok == 0) {
+
                 System.out.println("The two strings:" + string1 + " " + string2 + " are not anagrams");
-                return false;
+                return;
             }
 
         }
@@ -202,20 +190,19 @@ public class Strings {
             if (listIterator.count != 0) {
 
                 System.out.println("The two strings:" + string1 + " " + string2 + " are not anagrams");
-               return false;
+                return;
             }
         }
         System.out.println("The two strings:" + string1 + " " + string2 + " are anagrams");
-        return true;
+
+
     }
 
 
-
-/*
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        /*
+
         System.out.println("Insert the string: ");
         String str = scanner.next();
 
@@ -231,11 +218,13 @@ public class Strings {
         int n = str.length();
         System.out.println(removeDuplicates(str.toCharArray(), n));
         duplicateString(str);
-        anagrams("alistlen","silelant");
+        anagrams("listlen","silelnt");
+        anagrams("","");
 
 
- */
-
+    }
 }
 
-
+//System.out.println("Enter the string to remove duplicates: ");
+//char str1[] = scanner.nextLine().toCharArray();
+// nu mai e nevoie momentan de ele

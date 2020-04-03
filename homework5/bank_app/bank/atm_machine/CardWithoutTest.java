@@ -1,42 +1,36 @@
 package homework5.bank_app.bank.atm_machine;
 
-//import lombok.AllArgsConstructor;
+public class CardWithoutTest {
 
-
-public class Card {
-
-    private static String number;
-    //private String number;
+    private String number;
     private double balance;
     private String customerName;
     private String PIN;
 
 
-    public Card(String number, double balance, String customerName, String PIN){
+    public CardWithoutTest(String number, double balance, String customerName, String PIN){
         this.number = number;
         this.balance = balance;
         this.customerName = customerName;
         this.PIN = PIN;
     }
 
-    double deposit(double depositAmount){
+    public void deposit(double depositAmount){
         this.balance += depositAmount;
         System.out.println("Deposit of " + depositAmount + " made. New balance is " + this.balance);
-        return depositAmount;
     }
 
-   Double withdrawal(double withdrawalAmount){
+    public void withdrawal(double withdrawalAmount){
         if(balance - withdrawalAmount < 0){
             System.out.println("Only " + this.balance + " available. Withdrawal not processed");
         } else {
             balance -= withdrawalAmount;
             System.out.println("Withdrawal of " + withdrawalAmount + " processed. Remaining balance = " + this.balance);
         }
-        return withdrawalAmount;
     }
 
 
-    String changePIN(String oldPIN, String newPIN){
+    public void changePIN(String oldPIN, String newPIN){
         if(oldPIN.equals(this.PIN)){
             if (newPIN.length() == 4) {
                 this.PIN = newPIN;
@@ -44,36 +38,32 @@ public class Card {
         } else {
             System.out.println("The PIN introduced is incorrect");
         }
-        return newPIN;
     }
 
 
 
-    static String getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    String setNumber(String number) {
+    public void setNumber(String number) {
         this.number = number;
-        return number;
     }
 
-    double getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    double setBalance(double balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
-        return balance;
     }
 
-    String getCustomerName() {
+    public String getCustomerName() {
         return customerName;
     }
 
-    String setCustomerName(String customerName) {
+    public void setCustomerName(String customerName) {
         this.customerName = customerName;
-        return customerName;
     }
 
 

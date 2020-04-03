@@ -2,19 +2,19 @@ package homework5.bank_app.bank.repository;
 
 import java.util.ArrayList;
 
-public class Database {
+public class DatabaseWithoutTest {
 
-    public static ArrayList<String> allAccounts=new ArrayList<>();
+    public static ArrayList<String> allAccounts;
 
-     //public Database() {
-     //   allAccounts = new ArrayList<>();
-   // }
+    static {
+        allAccounts = new ArrayList<>();
+    }
 //    public Database() {
 //
 //        this.allAccounts = new ArrayList<String>();
 //    }
 
-     public static boolean addToDatabase(String iban) {
+    public boolean addToDatabase(String iban) {
         if (allAccounts.contains(iban)) {
             return false;
         } else {
