@@ -1,0 +1,5 @@
+java.time homework
+1. https://www.hackerrank.com/challenges/java-date-and-time/problem
+2. Write a method that, for a given year, reports the length of each month within that year.
+3. Write a method that, for a given month of the current year, lists all of the Mondays in that month.
+4. Write an example that tests whether a given date occurs on Friday the 13th.
